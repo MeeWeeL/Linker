@@ -59,11 +59,6 @@ public class DataSourceImpl implements DataSource {
     }
 
     @Override
-    public void deleteLink(String shortLink) {
-        links.remove(shortLink);
-    }
-
-    @Override
     public void updateLinkLimitCount(Link link, Integer newCount) {
         links.replace(
             link.getShortLink(),
@@ -74,5 +69,10 @@ public class DataSourceImpl implements DataSource {
                 /* currentLimitCount */ newCount
             )
         );
+    }
+
+    @Override
+    public void deleteLink(String shortLink) {
+        links.remove(shortLink);
     }
 }

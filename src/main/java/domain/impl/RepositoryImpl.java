@@ -79,7 +79,7 @@ public class RepositoryImpl implements Repository {
             int newCount = link.getCurrentLimitCount() - 1;
             if (newCount < 1) {
                 localData.deleteLink(link.getShortLink());
-                messageManager.sendMessage("Ссылка" + link.getShortLink() + " удалена");
+                messageManager.sendMessage("Ссылка " + link.getShortLink() + " удалена");
                 return null;
             } else {
                 localData.updateLinkLimitCount(link, link.getCurrentLimitCount() - 1);
@@ -102,7 +102,7 @@ public class RepositoryImpl implements Repository {
     public void deleteLink(@NotNull String shortLink) {
         checkTimes();
         localData.deleteLink(shortLink);
-        messageManager.sendMessage("Ссылка" + shortLink + " удалена");
+        messageManager.sendMessage("Ссылка " + shortLink + " удалена");
         updateLinks();
     }
 
@@ -111,7 +111,7 @@ public class RepositoryImpl implements Repository {
         checkTimes();
         if (newCount < 1) {
             localData.deleteLink(link.getShortLink());
-            messageManager.sendMessage("Ссылка" + link.getShortLink() + " удалена");
+            messageManager.sendMessage("Ссылка " + link.getShortLink() + " удалена");
         } else {
             localData.updateLinkLimitCount(link, newCount);
         }
@@ -144,7 +144,7 @@ public class RepositoryImpl implements Repository {
                 currentDate.add(Calendar.SECOND, -LIFE_TIME_SECONDS);
                 if (millis < currentDate.getTimeInMillis()) {
                     localData.deleteLink(link.getShortLink());
-                    messageManager.sendMessage("Ссылка" + link.getShortLink() + " удалена");
+                    messageManager.sendMessage("Ссылка " + link.getShortLink() + " удалена");
                 }
             }
         }
